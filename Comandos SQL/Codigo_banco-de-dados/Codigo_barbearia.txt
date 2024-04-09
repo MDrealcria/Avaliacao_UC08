@@ -1,0 +1,33 @@
+Banco de dados Cadastro_Cliente
+
+create table telefone(
+id_telefone int primary key not null auto increment,
+numero decimal not null,
+operadora varchar(10) not null,
+DDD char(3),
+fk_pessoa int 
+foreing key (fk_pessoa) references pessoa(id_pessoa);
+
+
+create table pessoa(
+id_pessoa int  primary key not null auto increment,
+nome varchar(45) not null,
+data_nascimento date not null,
+cpf decimal(11) not null,
+sexo char(1) not null,
+numero_casa varchar(4),
+fk_endereco int 
+foreign key (fk_endereco) references endereco(id_endereco)
+);
+
+
+create table endereco(
+id_endereco int primary key not null auto increment,
+logradouro varchar(45) not null,
+bairro varchar(45) not null,
+cep char(8) not null, 
+cidade varchar(20) not null,
+estado varchar(20) not null,
+complemento varchar(45) not null
+);
+

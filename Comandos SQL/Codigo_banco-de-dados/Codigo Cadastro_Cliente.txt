@@ -1,0 +1,29 @@
+CREATE TABLE telefone (
+    id_telefone INT PRIMARY KEY NOT NULL,
+    numero DECIMAL(10),
+    operadora CHAR(10) NOT NULL,
+    DDD CHAR(3) not null
+    fk_pessoa int
+    foreing key (fk_pessoa) references pessoa(id_pessoa)
+  );
+
+create table endereco(
+id_endereco int primary key not null,
+logradouro varchar(45) not null,
+bairro varchar(45) not null,
+cep char(8) not null,
+cidade varchar(20) not null,
+estado varchar(20) not null,
+complemento varchar(45) not null
+);
+
+create table pessoa(
+id_pessoa int  primary key not null,
+nome varchar(45) not null,
+data_nascimento date not null,
+cpf decimal(11) not null,
+sexo char(1) not null,
+numero_casa varchar(4),
+fk_endereco int,
+foreing key (fk_endereco) references endereco (id_endereco)
+);

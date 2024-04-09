@@ -1,0 +1,51 @@
+create database ONG_ANIMAIS;
+use ong_animais;
+create table ong(
+id_ong int primary key not null,
+nome varchar(45) not null,
+endereco varchar(45) not null,
+email varchar(45) not null,
+whatsapp char(1) not null
+);
+
+create table ocorrencia (
+id_ocorrencia int primary key not null auto_increment,
+decricao  varchar(45) not null,
+endereco varchar(45) not null,
+imagem varchar(45) not null,
+dia data not null,
+fk_usuario int not null,
+fk_ong int not null
+);
+
+--------------------------------------------
+
+use ong_animais;
+create database ONG_ANIMAIS;
+use ong_animais;
+create table ong(
+id_ong int primary key not null,
+nome varchar(45) not null,
+endereco varchar(45) not null,
+email varchar(45) not null,
+whatsapp char(1) not null
+);
+
+create table usuario (
+id_usuario int primary key not null,
+nome varchar(45) not null,
+endereco varchar(45) not null,
+email varchar(45) not null,
+whastapp char(11) not null
+);
+
+create table ocorrencia (
+id_ocorrencia int primary key not null auto_increment,
+decricao  varchar(45) not null,
+endereco varchar(45) not null,
+imagem varchar(45) not null,
+dia date not null,
+fk_usuario int ,
+fk_ong int not 
+foreing key (fk_usuario) references usuario (id_usuario)
+);

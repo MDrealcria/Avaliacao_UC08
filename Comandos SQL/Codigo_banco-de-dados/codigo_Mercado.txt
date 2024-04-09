@@ -1,0 +1,24 @@
+create database mercado;
+use mercado;
+create table produtos(
+id_produtos int primary key not null,
+nome varchar(45) not null,
+quantidade varchar(45) not null,
+valor_unitario decimal not null
+);
+ create table venda (
+id_venda int primary key not null,
+data_venda date not null,
+hora_venda time not null,
+valor_total decimal not null
+);
+
+create table itens_vendidos(
+id_itens int primary key not null,
+quantidade decimal not null,
+valor_venda varchar(45),
+fk_venda int,
+fk_produto int,
+foreing key (fk_venda) references venda (id_venda)
+foreing key (fk_produto) references produto (id_produto)
+); 

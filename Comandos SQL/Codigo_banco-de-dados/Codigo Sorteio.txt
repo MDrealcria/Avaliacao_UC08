@@ -1,0 +1,29 @@
+create database sorteio_online
+use sorteio_online 
+create table usuario(
+id_usuario int primary key not null auto_increment,
+nome varchar(45) not null);
+
+create table criador(
+id_criador int primary key not null auto_increment,
+nome varchar(45) not null);
+
+create table rifa (
+id_rifa int primary key not null auto_increment,
+premio varchar (45) not null,
+data_ date not null,
+numeros decimal not null,
+descricao varchar(100) not null,
+valor_numero decimal not null,
+fK_criador int,
+foreign key (fk_criador) references criador(id_criador)
+);
+
+create table Numeros_vendidos(
+id_numeros_vendidos int primary key not null auto_increment,
+numeros_sorteados decimal not null,
+fk_rifa int,
+fk_usuario int,
+foreign key (fk_rifa) references rifa (id_rifa),
+foreign key (fk_usuario) references usuario (id_usuario)
+);
